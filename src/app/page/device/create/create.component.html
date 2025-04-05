@@ -1,0 +1,20 @@
+<section class="create-device-wrapper">
+    <form (ngSubmit)="submitForm()" #objectForm="ngForm">
+        <h2>Tambahkan Device Baru</h2>
+        <div class="input-wrapper">
+            <div class="input-box">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" [(ngModel)]="newObject.name" required>
+            </div>
+            <div class="input-box">
+                <label for="name">Harga</label>
+                <input type="number" id="capacity" name="capacity" [(ngModel)]="newObject.data.price" required>
+            </div>
+            <div class="input-box">
+                <label for="name">Tahun</label>
+                <input type="number" id="year" name="year" [(ngModel)]="newObject.data.year" required>
+            </div>
+        </div>
+        <button type="submit" class="button-primary button-submit" [class.disable-button]="isLoadingSubmit">{{ isLoadingSubmit ? 'Mengirim data...' : 'Send' }}</button>
+    </form>
+</section>

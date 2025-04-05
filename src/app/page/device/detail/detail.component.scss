@@ -1,0 +1,33 @@
+.item-fact {
+    padding: 1rem;
+
+    .device-name {
+        font-size: 1.75rem;
+        font-weight: 600;
+        line-height: 1.5;
+        margin-bottom: 10px;
+    }
+
+    .button-action-wrapper {
+        gap: 1.15rem;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 1.5rem;
+        align-items: center;
+    }
+
+    .delete-button {
+        background-color: rgb(252, 68, 68);
+
+        &:hover {
+            background-color: rgb(196, 19, 19);
+        }
+    }
+    .edit-button {
+        background-color: rgb(20, 167, 32);
+
+        &:hover {
+            background-color: rgb(19, 196, 28);
+        }
+    }
+}

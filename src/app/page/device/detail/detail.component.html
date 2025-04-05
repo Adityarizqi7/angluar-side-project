@@ -1,0 +1,33 @@
+<section [ngStyle]="{ display: showForm ? 'flex' : 'block' }">
+    <div class="item-fact">
+        <div class="device-name">
+            {{ detail_device.name }}
+        </div>
+        <div *ngIf="detail_device.data" class="spesifikasi-device">
+            {{ detail_device.data.capacity }}{{ detail_device.data.capacity ? ',' : '' }} {{ detail_device.data.color }}
+        </div>
+        <div class="button-action-wrapper">
+            <button class="button-primary edit-button" (click)="handleShowForm()">Ubah Device</button>
+            <button class="button-primary delete-button" [class.disable-button]="loadingDelete" (click)="handleDelete()">{{ loadingDelete ? 'Menghapus data...' : 'Hapus Device' }}</button>
+        </div>
+    </div>
+
+    <form (ngSubmit)="submitForm()" *ngIf="showForm" #objectForm="ngForm" style="margin-top: 1.5rem;">
+        <h2>Ubah Device</h2>
+        <div class="input-wrapper">
+            <div class="input-box">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" [(ngModel)]="newObject.name" required>
+            </div>
+            <div class="input-box">
+                <label for="name">Kapasitas</label>
+                <input type="text" id="capacity" name="capacity" [(ngModel)]="newObject.data.capacity" required>
+            </div>
+            <div class="input-box">
+                <label for="name">Jenis Warna</label>
+                <input type="text" id="color" name="color" [(ngModel)]="newObject.data.color" required>
+            </div>
+        </div>
+        <button type="submit" class="button-primary button-submit" [class.disable-button]="isLoadingEdit">{{ isLoadingEdit ? 'Perbarui data...' : 'Ubah Device' }}</button>
+    </form>
+</section>

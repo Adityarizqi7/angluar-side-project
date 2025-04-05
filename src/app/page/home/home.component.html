@@ -1,0 +1,16 @@
+<section class="user-list-wrapper">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap;">
+        <h2>Daftar Device Gacor Tahun Iniiii</h2>
+        <button [routerLink]="['/device/create']" class="button-add-device button-primary">Tambah Device</button>
+    </div>
+    <div class="list-user">
+        <div *ngFor="let detail of device;" [routerLink]="['/device', detail.id]" class="item-fact">
+            <div class="device-name">
+                {{ detail.name }}
+            </div>
+            <div *ngIf="detail.data" class="spesifikasi-device">
+                {{ detail.data.capacity }}{{ detail.data.capacity ? ',' : '' }} {{ detail.data.color }}
+            </div>
+        </div>
+    </div>
+</section>
