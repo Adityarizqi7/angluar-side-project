@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create',
@@ -22,7 +23,8 @@ export class CreateComponent implements OnInit {
 
     constructor(
       private http: HttpClient,
-      private titleService: Title
+      private titleService: Title,
+      private router: Router
     ) {}
 
     ngOnInit(): void {
@@ -41,5 +43,9 @@ export class CreateComponent implements OnInit {
             this.isLoadingSubmit = false;
           }
         );
+    }
+
+    handleBackToHomePage() {
+      this.router.navigate(['/'])
     }
 }

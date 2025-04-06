@@ -3,6 +3,7 @@ import { HomeComponent } from './page/home/home.component';
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 import { CreateComponent } from './page/device/create/create.component';
 import { DetailComponent } from './page/device/detail/detail.component';
+import { NotFoundComponent } from './page/not-found/not-found.component';
 
 export const routes: Routes = [
     {
@@ -32,6 +33,10 @@ export const routes: Routes = [
                         }));
                       }
                 }
+            },
+            {
+                path: '**',
+                component: NotFoundComponent
             }
         ]
     }

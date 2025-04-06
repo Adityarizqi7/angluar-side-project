@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   device: any[] = [];
   total_user: number = 0
 
-  chooseDevice: boolean = false;
+  chooseDevice: boolean = true;
   chooseToDo: boolean = false;
 
   todos: {task: string, done: boolean}[] = []

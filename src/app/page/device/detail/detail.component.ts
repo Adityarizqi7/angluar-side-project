@@ -103,4 +103,8 @@ export class DetailComponent implements OnInit {
   handleShowForm() {
     this.showForm = !this.showForm;
   }
+
+  handleBackToHomePage() {
+    this.router.navigate(['/'])
+  }
 }

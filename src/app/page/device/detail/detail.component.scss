@@ -1,5 +1,17 @@
+.back-button {
+    &:hover {
+        opacity: 0.5;
+    }
+}
+
+.wrapper-detail-device {
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
+}
+
 .item-fact {
-    padding: 1rem;
+    padding: 1rem 2rem;
 
     .device-name {
         font-size: 1.75rem;

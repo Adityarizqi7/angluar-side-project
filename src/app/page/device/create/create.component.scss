@@ -1,3 +1,9 @@
 .create-device-wrapper {
     padding-top: 3rem;
+
+    .back-button {
+        &:hover {
+            opacity: 0.5;
+        }
+    }
 }

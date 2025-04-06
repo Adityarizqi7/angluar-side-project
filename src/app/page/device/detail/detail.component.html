@@ -1,41 +1,47 @@
-<section [ngStyle]="{ display: showForm ? 'flex' : 'block' }">
-    <div class="item-fact poppins-medium">
-        <div class="device-name">
-            {{ detail_device.name }}
-        </div>
-        <div *ngIf="detail_device.data" class="spesifikasi-device">
-            {{ detail_device.data.capacity }}{{ detail_device.data.capacity ? ',' : '' }} {{ detail_device.data.color }}
-        </div>
-        <div class="button-action-wrapper">
-            <button class="button-primary edit-button" (click)="handleShowForm()">Ubah Device</button>
-            <button class="button-primary delete-button" [class.disable-button]="loadingDelete" (click)="handleDelete()">{{ loadingDelete ? 'Menghapus data...' : 'Hapus Device' }}</button>
-        </div>
+<section>
+    <div class="back-button poppins-medium" style="display: flex; align-items: center; gap: 8px; cursor: pointer; margin-bottom: 1rem; margin-left: 2rem; margin-top: 2rem;" (click)="handleBackToHomePage()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H6M12 5l-7 7 7 7"/></svg>
+        <h4>Kembali</h4>
     </div>
-
-    <form (ngSubmit)="submitForm()" *ngIf="showForm" #objectForm="ngForm" style="margin-top: 1.5rem;" class="poppins-medium">
-        <h2>Ubah Device</h2>
-        <div class="input-wrapper">
-            <div class="input-box">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" [(ngModel)]="newObject.name" required>
+    <article [ngStyle]="{ display: showForm ? 'flex' : 'block' }" class="wrapper-detail-device">
+        <div class="item-fact poppins-medium">
+            <div class="device-name">
+                {{ detail_device.name }}
             </div>
-            <div *ngIf="detail_device.data.capacity || detail_device.data['Capacity']" class="input-box">
-                <label for="name">Kapasitas</label>
-                <input type="text" id="capacity" name="capacity" [(ngModel)]="newObject.data.capacity" required>
+            <div *ngIf="detail_device.data" class="spesifikasi-device">
+                {{ detail_device.data.capacity }}{{ detail_device.data.capacity ? ',' : '' }} {{ detail_device.data.color }}
             </div>
-            <div *ngIf="detail_device.data.price" class="input-box">
-                <label for="name">Price</label>
-                <input type="text" id="price" name="price" [(ngModel)]="newObject.data.price" required>
-            </div>
-            <div *ngIf="detail_device.data['Screen size']" class="input-box">
-                <label for="name">Besar Layar</label>
-                <input type="number" id="screen_size" name="screen_size" [(ngModel)]="newObject.data.screen_size" required>
-            </div>
-            <div *ngIf="detail_device.data.color" class="input-box">
-                <label for="name">Jenis Warna</label>
-                <input type="text" id="color" name="color" [(ngModel)]="newObject.data.color" required>
+            <div class="button-action-wrapper">
+                <button class="button-primary edit-button" (click)="handleShowForm()">Ubah Device</button>
+                <button class="button-primary delete-button" [class.disable-button]="loadingDelete" (click)="handleDelete()">{{ loadingDelete ? 'Menghapus data...' : 'Hapus Device' }}</button>
             </div>
         </div>
-        <button type="submit" class="button-primary button-submit" [class.disable-button]="isLoadingEdit">{{ isLoadingEdit ? 'Perbarui data...' : 'Ubah Device' }}</button>
-    </form>
+    
+        <form (ngSubmit)="submitForm()" *ngIf="showForm" #objectForm="ngForm" style="margin-top: 1.5rem;" class="poppins-medium">
+            <h2>Ubah Device</h2>
+            <div class="input-wrapper">
+                <div class="input-box">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" [(ngModel)]="newObject.name" required>
+                </div>
+                <div *ngIf="detail_device.data.capacity || detail_device.data['Capacity']" class="input-box">
+                    <label for="name">Kapasitas</label>
+                    <input type="text" id="capacity" name="capacity" [(ngModel)]="newObject.data.capacity" required>
+                </div>
+                <div *ngIf="detail_device.data.price" class="input-box">
+                    <label for="name">Price</label>
+                    <input type="text" id="price" name="price" [(ngModel)]="newObject.data.price" required>
+                </div>
+                <div *ngIf="detail_device.data['Screen size']" class="input-box">
+                    <label for="name">Besar Layar</label>
+                    <input type="number" id="screen_size" name="screen_size" [(ngModel)]="newObject.data.screen_size" required>
+                </div>
+                <div *ngIf="detail_device.data.color" class="input-box">
+                    <label for="name">Jenis Warna</label>
+                    <input type="text" id="color" name="color" [(ngModel)]="newObject.data.color" required>
+                </div>
+            </div>
+            <button type="submit" class="button-primary button-submit" [class.disable-button]="isLoadingEdit || (newObject.data.capacity === ''|| newObject.data.color === '' || newObject.name === '' || newObject.data.price === '' || newObject.data.screen_size === '')">{{ isLoadingEdit ? 'Perbarui data...' : 'Ubah Device' }}</button>
+        </form>
+    </article>
 </section>
