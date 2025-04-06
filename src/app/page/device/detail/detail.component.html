@@ -1,5 +1,5 @@
 <section [ngStyle]="{ display: showForm ? 'flex' : 'block' }">
-    <div class="item-fact">
+    <div class="item-fact poppins-medium">
         <div class="device-name">
             {{ detail_device.name }}
         </div>
@@ -12,18 +12,26 @@
         </div>
     </div>
 
-    <form (ngSubmit)="submitForm()" *ngIf="showForm" #objectForm="ngForm" style="margin-top: 1.5rem;">
+    <form (ngSubmit)="submitForm()" *ngIf="showForm" #objectForm="ngForm" style="margin-top: 1.5rem;" class="poppins-medium">
         <h2>Ubah Device</h2>
         <div class="input-wrapper">
             <div class="input-box">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" [(ngModel)]="newObject.name" required>
             </div>
-            <div class="input-box">
+            <div *ngIf="detail_device.data.capacity || detail_device.data['Capacity']" class="input-box">
                 <label for="name">Kapasitas</label>
                 <input type="text" id="capacity" name="capacity" [(ngModel)]="newObject.data.capacity" required>
             </div>
-            <div class="input-box">
+            <div *ngIf="detail_device.data.price" class="input-box">
+                <label for="name">Price</label>
+                <input type="text" id="price" name="price" [(ngModel)]="newObject.data.price" required>
+            </div>
+            <div *ngIf="detail_device.data['Screen size']" class="input-box">
+                <label for="name">Besar Layar</label>
+                <input type="number" id="screen_size" name="screen_size" [(ngModel)]="newObject.data.screen_size" required>
+            </div>
+            <div *ngIf="detail_device.data.color" class="input-box">
                 <label for="name">Jenis Warna</label>
                 <input type="text" id="color" name="color" [(ngModel)]="newObject.data.color" required>
             </div>

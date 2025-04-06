@@ -1,6 +1,6 @@
 $font-stack: 'Sego UI', sans-serif;
 
-.user-list-wrapper {
+.project-list-wrapper {
     padding: 0 1rem;  
     margin-top: 2rem;
     h2 {
@@ -11,7 +11,12 @@ $font-stack: 'Sego UI', sans-serif;
             width: 100%;
         }
     }
-    .list-user {
+    .back-button {
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+    .list-project {
         gap: 2rem;
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -45,4 +50,106 @@ $font-stack: 'Sego UI', sans-serif;
             }
         }
     }
+
+    .project-wrapper {
+        gap: 1rem;
+        display: flex;
+        align-items: center;
+
+        .item-project {
+            padding: 12px;
+            cursor: pointer;
+            width: max-content;
+            border-radius: 8px;
+            font-family: $font-stack;
+            border: 1px solid rgb(196, 196, 196);
+    
+            &:hover {
+                background-color: rgba(218, 218, 218, 0.199);
+            }
+            
+            .project-name {
+                font-weight: 700;
+                line-height: 1.5;
+            }
+            .desc-project {
+                font-size: 12px;
+                margin-top: 6px;
+                color: rgb(158, 158, 158);
+            }
+        }
+    }
+
+    .device-project {
+        margin-top: 2rem;
+    }
+
+    .to-do-list { margin-top: 3rem; }
+
+    .box-todo-list {
+        margin: 0 auto;
+        width: 30%;
+        border-radius: 6px;
+        text-align: center;
+        border: 1px solid rgb(196, 196, 196);
+        
+        @media (max-width: 768px) {
+            width: 50%;
+        }
+        @media (max-width: 640px) {
+            width: 70%;
+        }
+        @media (max-width: 592px) {
+            width: 100%;
+        }
+
+        h5 {
+            padding: 1.25rem;
+            font-size: 2rem;
+            background-color: rgba(209, 207, 207, 0.267);
+        }
+
+        .item-to-do-wrapper {
+            padding: 1.25rem 1rem;
+            .input-todo {
+                position: relative;
+                input {
+                    width: 100%;
+                    padding: 10px 40px 10px 20px;
+                    display: inline-block;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                    box-sizing: border-box;
+                    &:focus {
+                        outline: none;
+                    }
+                }
+            }
+            .list-todo {
+                margin-top: 1.5rem;
+                .wrapper-item-todo {
+                    display: flex;
+                    padding: 10px;
+                    border-radius: 6px;
+                    align-items: center;
+                    border: 1px solid #ccc;
+                    justify-content: space-between;
+                    .checklist-todo {
+                        gap: 8px;
+                        display: flex;
+                        align-items: center;
+                        h4 {
+                            font-size: 14px;
+                            font-weight: 600;
+                        }
+                        svg { cursor: pointer; }
+                    }
+                    .delete-todo {
+                        svg { cursor: pointer; }
+                    }
+                }
+            }
+        }
+    }
+
 }

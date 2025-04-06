@@ -33,8 +33,6 @@ export class CreateComponent implements OnInit {
       this.isLoadingSubmit = true;
         this.http.post('https://api.restful-api.dev/objects', this.newObject).subscribe(
           (response) => {
-            console.log(response);
-            console.log(this.newObject);
             alert('Device berhasil ditambahkan!')
             this.isLoadingSubmit = false;
           },
